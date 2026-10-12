@@ -1,6 +1,25 @@
+def checkSides (a, b, c):
+    isTri = a < b + c
+    isTri *= b < a + c
+    isTri *= c < a + b
+    return isTri
+
 lengthArr = [0.0, 0.0, 0.0]
+triType = 0
 lengthArr[0] = float(input("A length: "))
 lengthArr[1] = float(input("B length: "))
 lengthArr[2] = float(input("C length: "))
-lengthArr.sort(reverse=True)
-print(lengthArr)
+if checkSides(lengthArr[0], lengthArr[1], lengthArr[2]):
+    triType += 1
+    triType += lengthArr[0] == lengthArr[1]
+    triType += lengthArr[2] == lengthArr[1]
+    triType += lengthArr[2] == lengthArr[0]
+match triType:
+    case 0:
+        print("не треугольник")
+    case 1:
+        print("разносторонний")
+    case 2:
+        print("равнобедренный")
+    case 4:
+        print("равносторонний")
