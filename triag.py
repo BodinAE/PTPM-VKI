@@ -1,5 +1,6 @@
 import math
 
+#CHANGE INPUTS!!!!
 
 def checkSides (a, b, c):
     isTri = a < b + c
@@ -8,11 +9,12 @@ def checkSides (a, b, c):
     return isTri
 
 lengthArr = [0.0, 0.0, 0.0]
-coordArr = [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0]] #WRONG!!!!!
+coordArr = [(-1, -1), (-1, -1), (-1, -1)]
 triType = 0
 lengthArr[0] = float(input("A length: "))
 lengthArr[1] = float(input("B length: "))
 lengthArr[2] = float(input("C length: "))
+print(lengthArr)
 if checkSides(lengthArr[0], lengthArr[1], lengthArr[2]):
     triType += 1
     triType += lengthArr[0] == lengthArr[1]
@@ -28,7 +30,9 @@ match triType:
     case 4:
         print("равносторонний")
 if triType:
-    coordArr[1][0] = lengthArr[2]
-    coordArr[2][0] = ((lengthArr[1] ** 2) + (lengthArr[2] ** 2) - (lengthArr[0] ** 2))/(2 * lengthArr[2])
-    coordArr[2][1] = round(math.sqrt((lengthArr[1] ** 2) - (coordArr[2][0] ** 2)), 2)
+    coordArr[0] = (0, 0)
+    coordArr[1] = (int(lengthArr[2]), 0)
+    cx = int(((lengthArr[1] ** 2) + (lengthArr[2] ** 2) - (lengthArr[0] ** 2))/(2 * lengthArr[2]))
+    cy = int(math.sqrt((lengthArr[1] ** 2) - (cx ** 2)))
+    coordArr[2] = (cx, cy)
 print(coordArr)
