@@ -1,4 +1,6 @@
 import math
+import re
+
 
 #CHANGE INPUTS!!!!
 
@@ -7,6 +9,11 @@ def checkSides (a, b, c):
     isTri *= b < a + c
     isTri *= c < a + b
     return isTri
+
+def trigInput (inpt):
+    if re.match(r'[1-9][,.]?\d?', inpt):
+        return inpt.replace(',', '.')
+    return "a"
 
 lengthArr = [0.0, 0.0, 0.0]
 coordArr = [(-1, -1), (-1, -1), (-1, -1)]
