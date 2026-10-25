@@ -10,7 +10,7 @@ def do(x: float) -> int:
         raise ValueError("Input 0")
     elif -30.4 <= x < 0:
         return int(x) - 5
-    elif x < -30.5:
+    elif x <= -30.5:
         return -2000
     else:
         raise ValueError("Invalid input")
